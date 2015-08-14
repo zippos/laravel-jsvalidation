@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset='utf-8'>
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <meta name="description" content="Laravel jsValidation : Laravel 5 Javascript Validation">
+
+    <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
+
+    <title>Laravel jsValidation</title>
+  </head>
+
+  <body>
+
+    <!-- HEADER -->
+    <div id="header_wrap" class="outer">
+        <header class="inner">
+          <a id="forkme_banner" href="https://github.com/proengsoft/laravel-jsvalidation">View on GitHub</a>
+
+          <h1 id="project_title">Laravel jsValidation</h1>
+          <h2 id="project_tagline">Laravel 5 Javascript Validation</h2>
+
+            <section id="downloads">
+              <a class="zip_download_link" href="https://github.com/proengsoft/laravel-jsvalidation/zipball/master">Download this project as a .zip file</a>
+              <a class="tar_download_link" href="https://github.com/proengsoft/laravel-jsvalidation/tarball/master">Download this project as a tar.gz file</a>
+            </section>
+        </header>
+    </div>
+
+    <!-- MAIN CONTENT -->
+    <div id="main_content_wrap" class="outer">
+      <section id="main_content" class="inner">
+        <h1>
+<a id="laravel-5-javascript-validation" class="anchor" href="#laravel-5-javascript-validation" aria-hidden="true"><span class="octicon octicon-link"></span></a>Laravel 5 Javascript Validation</h1>
+
+<p><a href="https://github.com/proengsoft/laravel-jsvalidation/releases"><img src="https://img.shields.io/github/release/proengsoft/laravel-jsvalidation.svg?style=flat-square" alt="Latest Version"></a>
+<a href="https://travis-ci.org/proengsoft/laravel-jsvalidation"><img src="https://img.shields.io/travis/proengsoft/laravel-jsvalidation/master.svg?style=flat-square" alt="Build Status"></a>
+<a href="https://scrutinizer-ci.com/g/proengsoft/laravel-jsvalidation/?branch=master"><img src="https://scrutinizer-ci.com/g/proengsoft/laravel-jsvalidation/badges/coverage.png?b=master" alt="Code Coverage"></a>
+<a href="https://scrutinizer-ci.com/g/proengsoft/laravel-jsvalidation"><img src="https://img.shields.io/scrutinizer/g/proengsoft/laravel-jsvalidation.svg?style=flat-square" alt="Quality Score"></a>
+<a href="https://packagist.org/packages/proengsoft/laravel-jsvalidation"><img src="https://img.shields.io/packagist/dt/proengsoft/laravel-jsvalidation.svg?style=flat-square" alt="Total Downloads"></a></p>
+
+<p><strong>Laravel Javascript Validation</strong> allows to reuse your Laravel <a href="http://laravel.com/docs/5.1/validation#available-validation-rules">Validation Rules</a>, <a href="http://laravel.com/docs/5.1/validation#error-messages-and-views">Messages</a>, <a href="http://laravel.com/docs/5.1/validation#form-request-validation">FormRequest</a> and <a href="http://laravel.com/docs/5.1/validation#form-request-validation">Validators</a> to validate forms transparently in client side <strong>without need to write any Javascript code or use HTML Builder Class</strong>. You can validate forms automatically
+ referencing it to your defined validations. The messages are loaded from your validators and translated according your Localization preferences.</p>
+
+<p><strong>All Laravel <a href="http://laravel.com/docs/5.1/validation#available-validation-rules">Validation Rules</a>  and [Custom Validation Rules[] are supported</strong>. <a href="http://laravel.com/docs/5.1/validation#rule-active-url">ActiveURL</a>,
+<a href="http://laravel.com/docs/5.1/validation#rule-unique">Unique</a>, <a href="http://laravel.com/docs/5.1/validation#rule-exists">Exists</a> and <a href="http://laravel.com/docs/5.1/validation#custom-validation-rules">Custom Validation Rules</a>
+are validated automatically via Ajax.</p>
+
+<p>The <a href="https://github.com/proengsoft/laravel-jsvalidation/wiki/JsValidator-Reference">JsValidator</a> created by the <a href="https://github.com/proengsoft/laravel-jsvalidation/wiki/Facade">Facade</a> inherits from <a href="http://laravel.com/docs/5.0/validation">Laravel Validation</a>, so you can use all methods and procedures that Laravel provides to
+setup your validations. Also class and rule syntax are the same that Laravel Validation class implements. When the instance is printed in a 
+view the Javascript code needed to validate your form is rendered to the page.</p>
+
+<p>The Javascript validations are made using <a href="http://jqueryvalidation.org/">JQuery Validation Plugin</a>, that is compiled into javascript in the package.</p>
+
+<h3>
+<a id="documentation" class="anchor" href="#documentation" aria-hidden="true"><span class="octicon octicon-link"></span></a>Documentation</h3>
+
+<ul>
+<li><a href="https://github.com/proengsoft/laravel-jsvalidation/wiki/Home">About</a></li>
+<li>
+<a href="https://github.com/proengsoft/laravel-jsvalidation/wiki/Installation">Installation</a>
+
+<ul>
+<li><a href="https://github.com/proengsoft/laravel-jsvalidation/wiki/Installation#upgrade-from-previous-versions">Upgrade</a></li>
+</ul>
+</li>
+<li>
+<a href="https://github.com/proengsoft/laravel-jsvalidation/wiki/Configuration">Configuration</a>
+
+<ul>
+<li><a href="https://github.com/proengsoft/laravel-jsvalidation/wiki/Settings">Settings</a></li>
+<li><a href="https://github.com/proengsoft/laravel-jsvalidation/wiki/Javascript-Rendering">Javascript Rendering</a></li>
+<li><a href="https://github.com/proengsoft/laravel-jsvalidation/wiki/Dependencies">Dependencies</a></li>
+</ul>
+</li>
+<li>
+<a href="https://github.com/proengsoft/laravel-jsvalidation/wiki/Basic-Usage">Basic Usage</a>
+
+<ul>
+<li><a href="https://github.com/proengsoft/laravel-jsvalidation/wiki/Rules">Laravel Rules</a></li>
+<li><a href="https://github.com/proengsoft/laravel-jsvalidation/wiki/Form-Requests">Form Requests</a></li>
+</ul>
+</li>
+<li>
+<a href="https://github.com/proengsoft/laravel-jsvalidation/wiki/Validating-Forms">Validation Examples</a>
+
+<ul>
+<li><a href="https://github.com/proengsoft/laravel-jsvalidation/wiki/Controller-Validation-Example">Controller Example</a></li>
+<li><a href="https://github.com/proengsoft/laravel-jsvalidation/wiki/FormRequest-Validation-Example">FormRequest Example</a></li>
+</ul>
+</li>
+<li><a href="https://github.com/proengsoft/laravel-jsvalidation/wiki/Testing">Testing</a></li>
+<li><a href="https://github.com/proengsoft/laravel-jsvalidation/wiki/Contributing">Contributing</a></li>
+<li><a href="https://github.com/proengsoft/laravel-jsvalidation/blob/master/CHANGELOG.md">ChangeLog</a></li>
+<li><a href="https://github.com/proengsoft/laravel-jsvalidation/wiki/Security">Security</a></li>
+<li><a href="https://github.com/proengsoft/laravel-jsvalidation/wiki/Credits">Credits</a></li>
+<li><a href="https://github.com/proengsoft/laravel-jsvalidation/blob/master/LICENSE.md">License</a></li>
+</ul>
+
+<hr>
+
+<h3>
+<a id="facade-reference" class="anchor" href="#facade-reference" aria-hidden="true"><span class="octicon octicon-link"></span></a><a href="https://github.com/proengsoft/laravel-jsvalidation/wiki/Facade">Facade Reference</a>
+</h3>
+
+<ul>
+<li>
+<a href="https://github.com/proengsoft/laravel-jsvalidation/wiki/Facade#jsvalidatormake"><code>JsValidator::make()</code></a> </li>
+<li>
+<a href="https://github.com/proengsoft/laravel-jsvalidation/wiki/Facade#jsvalidatorformrequest"><code>JsValidator::formRequest()</code></a> </li>
+<li><a href="https://github.com/proengsoft/laravel-jsvalidation/wiki/Facade#jsvalidatorvalidator"><code>JsValidator::validator()</code></a></li>
+</ul>
+
+<hr>
+
+<h3>
+<a id="jsvalidator-reference" class="anchor" href="#jsvalidator-reference" aria-hidden="true"><span class="octicon octicon-link"></span></a><a href="https://github.com/proengsoft/laravel-jsvalidation/wiki/JsValidator-Reference">JsValidator Reference</a>
+</h3>
+
+<ul>
+<li><a href="https://github.com/proengsoft/laravel-jsvalidation/wiki/JsValidator-Reference#selectorselector"><code>selector()</code></a></li>
+<li><a href="https://github.com/proengsoft/laravel-jsvalidation/wiki/JsValidator-Reference#viewview"><code>view()</code></a></li>
+<li><a href="https://github.com/proengsoft/laravel-jsvalidation/wiki/JsValidator-Reference#renderview-selector"><code>render()</code></a></li>
+<li><a href="https://github.com/proengsoft/laravel-jsvalidation/wiki/JsValidator-Reference#arrayable-interface"><code>Arrayable interface</code></a></li>
+<li><a href="https://github.com/proengsoft/laravel-jsvalidation/wiki/JsValidator-Reference#__tostring"><code>__toString()</code></a></li>
+</ul>
+
+<h2>
+<a id="license" class="anchor" href="#license" aria-hidden="true"><span class="octicon octicon-link"></span></a>License</h2>
+
+<p>The MIT License (MIT). Please see <a href="LICENSE.md">License File</a> for more information.</p>
+      </section>
+    </div>
+
+    <!-- FOOTER  -->
+    <div id="footer_wrap" class="outer">
+      <footer class="inner">
+        <p class="copyright">Laravel jsValidation maintained by <a href="https://github.com/proengsoft">proengsoft</a></p>
+        <p>Published with <a href="https://pages.github.com">GitHub Pages</a></p>
+      </footer>
+    </div>
+
+    
+
+  </body>
+</html>
