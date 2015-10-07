@@ -88,7 +88,11 @@ class ValidatorTest extends \PHPUnit_Framework_TestCase {
     public function testValidationDataRemote() {
 
         $validator = $this->getRealValidator(['name'=>'active_url']);
-        $validator->setRemoteToken('encrypted token');
+        $store = m::mock('\Illuminate\Session\Store')
+            ->shouldReceive('getToken')->andReturn('session token')
+            ->getMock();
+        $encrypter= m::mock('Illuminate\Contracts\Encryption\Encrypter')->shouldReceive('encrypt')->with("session token")->andReturn("encrypted token")->getMock();
+        $validator->setSession($store,$encrypter);
         $validator->enableRemote(true);
         $data=$validator->validationData();
         $this->assertEquals([
@@ -103,7 +107,11 @@ class ValidatorTest extends \PHPUnit_Framework_TestCase {
     public function testJsRemoteCustomRule() {
 
         $validator = $this->getRealValidator(['name'=>'foo'], ['name.foo'=>'custom rule %replace%']);
-        $validator->setRemoteToken('encrypted token');
+        $store = m::mock('\Illuminate\Session\Store')
+            ->shouldReceive('getToken')->andReturn('session token')
+            ->getMock();
+        $encrypter= m::mock('Illuminate\Contracts\Encryption\Encrypter')->shouldReceive('encrypt')->with("session token")->andReturn("encrypted token")->getMock();
+        $validator->setSession($store,$encrypter);
         $validator->enableRemote(true);
 
         $validator->addExtension('foo', function($attribute, $value, $parameters) {
@@ -369,7 +377,12 @@ class ValidatorTest extends \PHPUnit_Framework_TestCase {
 
 
         $validator= $this->getRealValidator($rules,$messages, $data);
-        $validator->setRemoteToken('encrypted token');
+        $store = m::mock('\Illuminate\Session\Store')
+            ->shouldReceive('getToken')->andReturn('session token')
+            ->getMock();
+        $encrypter= m::mock('Illuminate\Contracts\Encryption\Encrypter')->shouldReceive('encrypt')->with("session token")->andReturn("encrypted token")->getMock();
+        $validator->setSession($store,$encrypter);
+
         $validator->enableRemote(true);
 
         try {
@@ -396,7 +409,12 @@ class ValidatorTest extends \PHPUnit_Framework_TestCase {
 
 
         $validator= $this->getRealValidator($rules,$messages, $data);
-        $validator->setRemoteToken('encrypted token');
+        $store = m::mock('\Illuminate\Session\Store')
+            ->shouldReceive('getToken')->andReturn('session token')
+            ->getMock();
+        $encrypter= m::mock('Illuminate\Contracts\Encryption\Encrypter')->shouldReceive('encrypt')->with("session token")->andReturn("encrypted token")->getMock();
+        $validator->setSession($store,$encrypter);
+
         $validator->enableRemote(true);
 
         try {
@@ -427,7 +445,12 @@ class ValidatorTest extends \PHPUnit_Framework_TestCase {
             'messages' =>  array('name'=>['laravelRequired'=>'name required']),
         );
         $validator= $this->getRealValidator($rules,$messages, $data);
-        $validator->setRemoteToken('encrypted token');
+        $store = m::mock('\Illuminate\Session\Store')
+            ->shouldReceive('getToken')->andReturn('session token')
+            ->getMock();
+        $encrypter= m::mock('Illuminate\Contracts\Encryption\Encrypter')->shouldReceive('encrypt')->with("session token")->andReturn("encrypted token")->getMock();
+        $validator->setSession($store,$encrypter);
+
         $validator->enableRemote(true);
 
         try {

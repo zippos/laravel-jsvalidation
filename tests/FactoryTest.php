@@ -53,7 +53,7 @@ class ValidationFactoryTest extends \PHPUnit_Framework_TestCase
             ->shouldReceive('token')->andReturn('session token')
             ->getMock();
         $app = new \Application();
-        $app['encrypter']= m::mock()->shouldReceive('encrypt')->with("session token")->andReturn("session token")->getMock();
+        $app['encrypter']= m::mock('Illuminate\Contracts\Encryption\Encrypter')->shouldReceive('encrypt')->with("session token")->andReturn("session token")->getMock();
         $factory = new Factory($laravelFactory, $app);
         $factory->setSessionStore($store);
         $factory->setJsRemoteEnabled(true);
