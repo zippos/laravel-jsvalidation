@@ -2,19 +2,29 @@
 
 namespace Proengsoft\JsValidation\Traits;
 
+use Illuminate\Contracts\Encryption\Encrypter;
 use Illuminate\Http\Exception\HttpResponseException;
 use Illuminate\Http\JsonResponse;
+use Illuminate\Session\Store;
 use Proengsoft\JsValidation\DelegatedValidator;
 use Symfony\Component\HttpKernel\Exception\BadRequestHttpException;
 
 trait RemoteValidation
 {
+
     /**
-     * Token used to secure remote validations.
+     * Session Store used to get token
      *
-     * @var
+     * @var Store
      */
-    protected $token;
+    protected $sessionStore;
+
+    /**
+     * Encrypter used to encrypt token
+     *
+     * @var Encrypter
+     */
+    protected $encrypter;
 
     /**
      * Enable or disable remote validations.
@@ -76,13 +86,15 @@ trait RemoteValidation
     }
 
     /**
-     * Set the token  for securing remote validation.
-     
-     * @param string $token
+     * Set the session data used for securing remote validation.
+     *
+     * @param Store $sessionStore
+     * @param Encrypter $encrypter
      */
-    public function setRemoteToken($token)
+    public function setSession(Store $sessionStore, Encrypter $encrypter=null)
     {
-        $this->token = $token;
+        $this->sessionStore = $sessionStore;
+        $this->encrypter = $encrypter;
     }
 
     /**
@@ -196,9 +208,23 @@ trait RemoteValidation
     {
         $params = [
             $attribute,
-            $this->token,
+            $this->getToken()
         ];
 
         return [$attribute, $params];
+    }
+
+    /**
+     * Get csrf token used in Ajax Validations
+     *
+     * @return string
+     */
+    protected function getToken() {
+        $token = $this->sessionStore->getToken();
+        if (!is_null($this->encrypter)) {
+            $token = $this->encrypter->encrypt($token);
+        }
+
+        return $token;
     }
 }

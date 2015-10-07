@@ -132,12 +132,11 @@ class Factory
             return;
         }
 
-        $token = $this->sessionStore->token();
-        if (! is_null($this->container['encrypter'])) {
-            $token = $this->container['encrypter']->encrypt($token);
-        }
-
-        $validator->setRemoteToken($token);
+        /**
+         * @var $encrypter \Illuminate\Contracts\Encryption\Encrypter;
+         */
+        $encrypter = $this->container['encrypter'];
+        $validator->setSession($this->sessionStore, $encrypter);
         $validator->enableRemote($this->jsRemoteEnabled);
     }
 
