@@ -13,7 +13,6 @@ env:
   - LARAVEL_VERSION="5.0.*"
 
 before_script:
-  - travis_retry composer self-update
   - travis_retry composer require illuminate/validation:$LARAVEL_VERSION
   - travis_retry composer install --no-interaction --prefer-source
 
