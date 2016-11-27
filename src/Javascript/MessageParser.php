@@ -55,10 +55,11 @@ class MessageParser
         //$files = $this->validator->getFiles();
         $data = $this->validator->getData();
 
-        $this->fakeFileData($files, $attribute);
+        //$this->fakeFileData($files, $attribute);
         $this->fakeRequiredIfData($data, $rule, $parameters);
 
-        return compact('data', 'files');
+        return compact('data');
+        //return compact('data', 'files');
     }
 
     /**
@@ -93,7 +94,7 @@ class MessageParser
 
         $newFiles = $files;
         $newFiles[$attribute] = false;
-        //$this->validator->setFiles($newFiles);
+        $this->validator->setFiles($newFiles);
     }
 
     /**
