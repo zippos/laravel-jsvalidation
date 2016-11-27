@@ -52,7 +52,7 @@ class MessageParser
      */
     protected function fakeValidationData($attribute, $rule, $parameters)
     {
-        $files = $this->validator->getFiles();
+        //$files = $this->validator->getFiles();
         $data = $this->validator->getData();
 
         $this->fakeFileData($files, $attribute);
@@ -93,7 +93,7 @@ class MessageParser
 
         $newFiles = $files;
         $newFiles[$attribute] = false;
-        $this->validator->setFiles($newFiles);
+        //$this->validator->setFiles($newFiles);
     }
 
     /**
@@ -103,7 +103,7 @@ class MessageParser
      */
     protected function setValidationData($data)
     {
-        $this->validator->setFiles($data['files']);
+        //$this->validator->setFiles($data['files']);
         $this->validator->setData($data['data']);
     }
 }
